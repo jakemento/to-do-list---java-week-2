@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.fluentlenium.core.filter.FilterConstructor.*;
+import java.time.LocalDateTime;
+
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -75,5 +77,11 @@ public class AppTest extends FluentTest {
   public void isCompleted_isFalseAfterInstantiaon_false() {
     Task myTask = new Task("Mow the lawn");
     assertEquals(false, myTask.isCompleted());
+  }
+
+  @Test
+  public void getCreateAt_instantiatesWithCurrentTime_today() {
+    Task myTask = new Task("Mow the lawn");
+    assertEquals(LocalDateTime.now().getDayOfWeek(), myTask.getCreatedAt().getDayOfWeek());
   }
 }
