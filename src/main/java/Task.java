@@ -15,5 +15,7 @@ public class Task {
     return mDescription;
   }
 
-
+  public boolean isCompleted() {
+    return mCompleted;
+  }
 }
