@@ -84,4 +84,10 @@ public class AppTest extends FluentTest {
     Task myTask = new Task("Mow the lawn");
     assertEquals(LocalDateTime.now().getDayOfWeek(), myTask.getCreatedAt().getDayOfWeek());
   }
+
+  @Test
+  public void newId_tasksInstantiateWithAnID_true() {
+    Task myTask = new Task("Mow the lawn");
+    assertEquals(Task.all().size(), myTask.getId());
+  }
 }
